@@ -1,0 +1,11 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+<h2>Colleges</h2>
+
+<ul class="list-group">
+    {% for college in colleges %}
+        <li class="list-group-item">{{ college }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
