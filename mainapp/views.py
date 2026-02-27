@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from .forms import EmailForm
+from .models import Student   
 
 def home(request):
     return render(request, "mainapp/home.html")
@@ -59,3 +60,6 @@ def send_email(request):
 
 def emailsent(request):
     return HttpResponse("Email Sent Successfully")
+def students_view(request):
+    students = Student.objects.all()
+    return render(request, "app1/students.html", {"students": students})
