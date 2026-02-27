@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import EmailForm
 from .models import Student   
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request, "mainapp/home.html")
@@ -60,6 +61,13 @@ def send_email(request):
 
 def emailsent(request):
     return HttpResponse("Email Sent Successfully")
-def students_view(request):
+
+def students(request):
     students = Student.objects.all()
-    return render(request, "app1/students.html", {"students": students})
+    return render(request, "mainapp/students.html", {"students": students})
+
+def create_admin(request):
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser('admin', 'admin@gmail.com', 'admin123')
+        return HttpResponse("Admin Created")
+    return HttpResponse("Admin Already Exists")
