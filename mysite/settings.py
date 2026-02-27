@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-@8!$-^^kxa3#%ogr818c_3!hc(xa3+#h)--&nkpu7!!q^36v33
 DEBUG = True
 
 # ALLOWED_HOSTS = [ 'harshini07.pythonanywhere.com','127.0.01']
-ALLOWED_HOSTS = ['.railway.app']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -80,6 +80,7 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
+import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -125,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT='/home/Harshini07/College-Website/staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
