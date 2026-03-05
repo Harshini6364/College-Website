@@ -90,7 +90,7 @@ if os.environ.get('MYSQLHOST'):
             'USER': os.environ.get('MYSQLUSER'),
             'PASSWORD': os.environ.get('MYSQLPASSWORD'),
             'HOST': os.environ.get('MYSQLHOST'),
-            'PORT': os.environ['MYSQLPORT'],
+            'PORT': os.environ.get('MYSQLPORT'),
         }
     }
 else:
